@@ -1,0 +1,12 @@
+{
+	"name": "Synpase_linked_service",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=dp203synapseadam.sql.azuresynapse.net;initial catalog=datapool;user id=adam",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEJGRDU3NzFCLTI5RkQtNEVGOC04NjE4LTBGM0RGQTM4QUUwOF80OTNkM2NhOS05OTc4LTRkMGMtOWI2OS0yNGMwZjkzMzA4NjIiDQp9"
+		}
+	}
+}
