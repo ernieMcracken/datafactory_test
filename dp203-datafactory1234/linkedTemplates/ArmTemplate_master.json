@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dp203-datafactory1234"
+		},
+		"DataLake_conn_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DataLake_conn'"
+		},
+		"DataLake_linked_service_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DataLake_linked_service'"
+		},
+		"Synpase_linked_service_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Synpase_linked_service'"
+		},
+		"DataLake_conn_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dp203adam.dfs.core.windows.net/"
+		},
+		"DataLake_linked_service_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dp203adam.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dp203-datafactory1234_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"DataLake_conn_accountKey": {
+						"value": "[parameters('DataLake_conn_accountKey')]"
+					},
+					"DataLake_linked_service_accountKey": {
+						"value": "[parameters('DataLake_linked_service_accountKey')]"
+					},
+					"Synpase_linked_service_connectionString": {
+						"value": "[parameters('Synpase_linked_service_connectionString')]"
+					},
+					"DataLake_conn_properties_typeProperties_url": {
+						"value": "[parameters('DataLake_conn_properties_typeProperties_url')]"
+					},
+					"DataLake_linked_service_properties_typeProperties_url": {
+						"value": "[parameters('DataLake_linked_service_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
