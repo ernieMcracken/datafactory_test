@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_jt6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLake_conn",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "data"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
