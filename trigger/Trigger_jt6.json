@@ -1,0 +1,35 @@
+{
+	"name": "Trigger_jt6",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "CopyPipeline_jt6",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": {
+					"type": "Expression",
+					"value": "@trigger().outputs.windowStartTime"
+				},
+				"windowEnd": {
+					"type": "Expression",
+					"value": "@trigger().outputs.windowEndTime"
+				}
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 5,
+			"startTime": "2024-07-09T13:08:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}
