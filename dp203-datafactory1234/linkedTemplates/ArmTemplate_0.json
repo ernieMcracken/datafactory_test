@@ -115,7 +115,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "*",
 						"fileSystem": "datanew"
 					},
 					"columnDelimiter": ",",
@@ -266,6 +265,7 @@
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
+									"wildcardFileName": "*",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
